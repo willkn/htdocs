@@ -9,49 +9,87 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ?>
-<div class="container bgColor">
-    <main role="main" class="pb-3">
-        <h1>Staff sign in</h1>
-        <div class="row">
 
-            <div class="col-6">
+<head>
+    <link rel="stylesheet" href="main.css?v=<?php echo time() ?>">
+</head>
 
-                <form method="post">
+<body>
+    <!-- <div class="container bgColor">
+        <main role="main" class="pb-3">
+            <h1>Staff sign in</h1>
+            <div class="row">
+                <div class="col-6">
 
-                    <div class="form-group col-md-6">
+                    <form method="post" class="form-body requires-validation">
 
-                        <label class="control-label labelFont">Username</label>
+                        <div class="form-group col-md-6 form-items">
 
-                        <input class="form-control" type="text" name="username">
+                            <label class="control-label labelFont">Username</label>
 
-                        <span class="text-danger"></span>
+                            <input class="form-control" type="text" name="username">
 
-                    </div>
+                            <span class="text-danger"></span>
 
-                    <div class="form-group col-md-6">
+                        </div>
 
-                        <label class="control-label labelFont">Password</label>
+                        <div class="form-group col-md-6">
 
-                        <input class="form-control" type="password" name="password">
+                            <label class="control-label labelFont">Password</label>
 
-                        <span class="text-danger"></span>
+                            <input class="form-control" type="password" name="password">
 
-                    </div>
+                            <span class="text-danger"></span>
 
-                    <div class="form-group col-md-4">
+                        </div>
 
-                        <input class="btn btn-primary" type="submit" value="Login" name="submit">
+                        <div class="form-group col-md-4">
 
-                    </div>
+                            <input class="btn btn-primary" type="submit" value="Login" name="submit">
 
-                </form>
+                        </div>
+
+                    </form>
+
+                </div>
 
             </div>
 
+        </main>
+
+    </div> -->
+    
+    <div class="form-body container">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Fitness Palace</h3>
+                        <p>Staff Login</p>
+                        <form method="POST" class="requires-validation" novalidate>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="username" placeholder="Username" required>
+                                <div class="valid-feedback">Username field is valid!</div>
+                                <div class="invalid-feedback">Username field cannot be blank!</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="password" name="password" placeholder="Password"
+                                    required>
+                                <div class="valid-feedback">Password field is valid!</div>
+                                <div class="invalid-feedback">Password field cannot be blank!</div>
+                            </div>
+
+                            <div class="form-button mt-3">
+                                <button id="submit" type="submit" value="Login" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-    </main>
-
-</div>
-
+</body>
 <?php include("footer.php") ?>

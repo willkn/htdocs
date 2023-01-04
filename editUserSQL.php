@@ -13,7 +13,6 @@ function editUserSQL($db)
         $table == 'Staff';
     }
 
-
     if ($_SESSION['connected']) {
 
         $sql = "UPDATE Customer SET Username=?, FirstName=?, LastName=?, Postcode=?, Email=?, DOB=?, Password=?, Membership=?, Payment=? WHERE ID=?;";
@@ -54,9 +53,11 @@ function editStaff($db)
 
     if ($_SESSION['connected']) {
 
-        $sql = "UPDATE Staff SET Username=?, FirstName=?, LastName=?, Postcode=?, Email=?, DOB=?, Password=?, Membership=?, Status=? WHERE ID=?";
+        $sql = "UPDATE Staff SET Username=?, FirstName=?, LastName=?, Postcode=?, Email=?, DOB=?, Password=?, Membership=?, Status=?, Payment=? WHERE ID=?";
 
         $stmt = $db->prepare($sql);
+
+        echo $_POST['payment'];
 
         $stmt->bindParam(1, $username);
         $stmt->bindParam(2, $_POST['firstName']);
@@ -67,7 +68,8 @@ function editStaff($db)
         $stmt->bindParam(7, $password);
         $stmt->bindParam(8, $_POST['membership']);
         $stmt->bindParam(9, $_POST['status']);
-        $stmt->bindParam(10, $_POST['id']);
+        $stmt->bindParam(10, $_POST['payment']);
+        $stmt->bindParam(11, $_POST['id']);
 
         $result = $stmt->execute();
 
@@ -91,7 +93,7 @@ function editMyself($db)
 
     if ($_SESSION['connected']) {
 
-        $sql = "UPDATE Customer SET Username=?, FirstName=?, LastName=?, Postcode=?, Email=?, DOB=?, Password=?, Membership=? WHERE ID=?;";
+        $sql = "UPDATE $table SET Username=?, FirstName=?, LastName=?, Postcode=?, Email=?, DOB=?, Password=?, Membership=? WHERE ID=?;";
 
         $stmt = $db->prepare($sql);
 

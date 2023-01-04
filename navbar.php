@@ -89,7 +89,9 @@ function checkIfLoggedIn()
                         <?php
                         require("loginSQL.php");
                         $daysToRenewal = daysToRenewal($db, $_SESSION['role']);
-                        echo "Time to renewal: " . daysToRenewal($db, $_SESSION['role']) + 1 . " days";
+                        if ($daysToRenewal) {
+                            echo "Time to renewal: " . daysToRenewal($db, $_SESSION['role']) . " days";
+                        }
 
                         ?>
                     </strong>

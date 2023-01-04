@@ -4,14 +4,14 @@ include_once("navbar.php");
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="main.css?v=<?php echo time() ?>">
 </head>
 
-<div class="container rounded main d-flex justify-content-center bg-secondary">
-	<div class="container bg-primary text-align: justify-content-center">
+<div class="container rounded main d-flex justify-content-center">
+	<div class="container text-align: justify-content-center">
 		<h1 class="display-5 mx-auto"><strong>Welcome to Fitness Palace!</strong></h1>
 
-		<!-- <img src="fitness.jpg" id="fitness" class=".img-thumbnail mx-auto d-block .img-fluid	max-width: 100%;"> -->
+		<img src="fitness.jpg" id="fitness" class=".img-thumbnail mx-auto d-block .img-fluid	max-width: 100%;">
 		<div id="intro">
 			<p>We are your one-stop-shop for all of your fitness needs. Whether you are looking to build strength or
 				just
@@ -32,12 +32,12 @@ include_once("navbar.php");
 		</div>
 	</div>
 
-	<div class="bg-secondary">
+	<div id="secondaryDiv">
 		<h1 class="display-5 text-center" id="membership"><strong>Membership Options</strong></h1>
 
 		<p>At the Fitness Palace, we offer a range of membership options to suit your needs. Whether you’re looking for
 			a one-off visit or a regular workout, we have something for everyone.</p>
-			<ul>
+			<ul id="prices" >
 				<li><strong>Daily Membership:</strong> £6.50</li>
 				<li><strong>Monthly Membership:</strong> £13.50</li>
 			</ul>

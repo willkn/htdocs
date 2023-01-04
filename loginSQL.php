@@ -53,10 +53,10 @@ function daysToRenewal($db, $table)
     $result = $stmt->execute();
     $result = ($result->fetchArray());
 
-    if (isset($result)) {
+    if (isset($result) and $result[0] < 100) {
         $timeToRenewal = (time() + 2678400) - strtotime($result[0]);
         $timeToRenewal /= 86400;
-        $timeToRenewal = floor($timeToRenewal);
+        $timeToRenewal = floor($timeToRenewal) + 1;
         return $timeToRenewal;
     }
 }

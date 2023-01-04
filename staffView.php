@@ -11,14 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require("insertUser.php");
         createUserSQL($db, $_POST['role']);
     } else if ($_POST['role'] == "Staff") {
-        echo 'staff';
         require("editUserSQL.php");
         editStaff($db);
     } else {
         require("editUserSQL.php");
         editUserSQL($db);
     }
-    // header('Location: staffView.php');
+    header('Location: staffView.php');
 }
 ?>
 
@@ -28,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <table class="table">
 
-            <thead class="table-dark">
+            <thead class="table">
 
                 <td>User ID</td>
 
@@ -84,12 +83,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </td>
                         <td>
                             <select name="payment">
-                                <option selected hidden value="<?php echo $allData[$i]['Payment'] ?>">
+                                <option hidden value="<?php echo $allData[$i]['Payment'] ?>">
                                     <?php echo $allData[$i]['Payment'] ?>
                                 </option>
-                                <option value="PENDING">Pending</option>
-                                <option value="ACTIVE">Active</option>
-                                <option value="SUSPENDED">Suspended</option>
+                                <option value="PENDING">PENDING</option>
+                                <option value="PAID">PAID</option>
                             </select>
                         </td>
                         <?php if (isset($allData[$i]['Role'])): ?>
@@ -142,13 +140,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="monthly">£13.50 Monthly pass</option>
                         </select>
                     </td>
-                    <td><input type="text" name="payment"></td>
+                    <td>
+                        <select name="payment">
+                            <option value="PENDING">PENDING</option>
+                            <option value="PAID">PAID</option>
+                        </select>
+                    </td>
                     <td>
                         <select name="role">
-                            <option value="Staff">Staff
-                            <option>
-                            <option value="Customer">Customer
-                            <option>
+                            <option value="Staff">Staff</option>
+                            <option value="Customer">Customer</option>
                         </select>
                     </td>
                     <td>
